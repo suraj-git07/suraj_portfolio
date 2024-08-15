@@ -14,7 +14,7 @@ const About = () => {
       </h1>
       <h1 data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="250" className="my-1 px-2 mb-3">
             I&apos;ve had the opportunity to showcase my skills at major events like ETHIndia and various hackathons. 
-            I also take pride in mentoring and inspiring students at the Web3 Bootcamp, 'SAY THE SKILL' .
+            I also take pride in mentoring and inspiring students at the Web3 Bootcamp, SAY THE SKILL .
             As an active member of the Google Developer Student Club and the Developer Relations team in my college&apos;s Software Development Cell, I&apos;m deeply committed to driving technological progress and fostering a collaborative community. make it a little bit concise , considering only the points that will highlight the recruters
       </h1>
       <h1 data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="350" className="my-1 px-2 mb-3">

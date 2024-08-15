@@ -190,7 +190,7 @@ const Home = () => {
               With over 3 years of experience, I specialize in building decentralized applications (DApps) from scratch. 
               Proficient in Solidity & C/C++, I excel in problem-solving and thrive in challenging environments.
               I&apos;ve showcased my skills at major events like ETHIndia and various hackathons, and I&apos;m passionate about mentoring fellow developers about Web3.
-              As an active member of the Google Developer Student Club and Developer Relations in my college's Software Development Cell, I&apos;m dedicated to driving innovation and fostering a collaborative tech community.
+              As an active member of the Google Developer Student Club and Developer Relations in my college&apos;s Software Development Cell, I&apos;m dedicated to driving innovation and fostering a collaborative tech community.
             </p>
             <div
               data-aos="fade-left"

@@ -39,7 +39,7 @@ const projects = [
     {
         heading:"Portfolio website",
         summary:"A responsive portfolio website designed to showcase my work professionally. It offers an elegant, user-friendly interface , with sections for introduction, skills, about me, projects, experience and contact information.",
-        code:"",
+        code:"https://github.com/suraj-git07/suraj_portfolio",
         link:"",
         img:"portfolio.png",
     },
