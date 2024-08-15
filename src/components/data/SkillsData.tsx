@@ -16,13 +16,13 @@ const skills = [
   "Tailwind",
   "MongoDB",
   "ExpressJS",
-  "Firebase",
+  "firebase",
   "MySQL",
   "PostgreSQL",
   "Git",
   "remix",
   "postman",
-  "Metamask"
+  "metamask"
 ];
 
 export default skills;
