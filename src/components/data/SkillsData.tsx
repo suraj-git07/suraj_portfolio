@@ -1,7 +1,7 @@
 const skills = [
   "solidity",
   "C",
-  "c++",
+  "C++",
   "rust",
   "python",
   "JavaScript",
