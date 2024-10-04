@@ -35,7 +35,7 @@ const Home = () => {
   const closeModal2 = () => setModalOpen2(false);
   const { theme } = useTheme();
 
-  useEffect(() => {}, [theme]);
+  useEffect(() => { }, [theme]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -146,7 +146,7 @@ const Home = () => {
               </Link>
               <Link
                 href={
-                  "https://drive.google.com/file/d/136RRasW6gZtbhY2kQpIindM1SoEZxtDy/view?usp=drive_link"
+                  "https://drive.google.com/file/d/1TEo6taSN3sW57IJOSxBwqvBwnDNQZ_g2/view?usp=sharing"
                 }
                 target="_blank"
               >
@@ -185,12 +185,10 @@ const Home = () => {
               data-aos-anchor-placement="top-bottom"
               className="line-clamp- my-3 tracking-[0.3px] "
             >
-              
-              Hello! I&apos;m Suraj Mishra, a Full-Stack Blockchain Developer and Computer Science Engineering student at GGSIP University, Dwarka. 
-              With over 3 years of experience, I specialize in building decentralized applications (DApps) from scratch. 
+
+              Hello! I&apos;m Suraj Mishra, a Full-Stack Blockchain Developer and Computer Science Engineering student at GGSIP University, Dwarka.
+              With over 3 years of experience, I specialize in building decentralized applications (DApps) from scratch.
               Proficient in Solidity & C/C++, I excel in problem-solving and thrive in challenging environments.
-              I&apos;ve showcased my skills at major events like ETHIndia and various hackathons, and I&apos;m passionate about mentoring fellow developers about Web3.
-              As an active member of the Google Developer Student Club and Developer Relations in my college&apos;s Software Development Cell, I&apos;m dedicated to driving innovation and fostering a collaborative tech community.
             </p>
             <div
               data-aos="fade-left"
@@ -333,16 +331,16 @@ const Home = () => {
                 {!Start
                   ? "loading ! "
                   : expData.map((exp, index) => (
-                      <div key={index}>
-                        <ExpCard
-                          img={`/Experience${exp.img}`}
-                          companyName={exp.companyName}
-                          role={exp.role}
-                          description={exp.description}
-                          timePeriod={exp.timePeriod}
-                        ></ExpCard>
-                      </div>
-                    ))}
+                    <div key={index}>
+                      <ExpCard
+                        img={`/Experience${exp.img}`}
+                        companyName={exp.companyName}
+                        role={exp.role}
+                        description={exp.description}
+                        timePeriod={exp.timePeriod}
+                      ></ExpCard>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
