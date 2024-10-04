@@ -1,7 +1,7 @@
 const expData = [
 
   {
-    img: "/Giichi1.png",
+    img: "/giichi1.png",
     companyName: "Giichi IT Solution",
     role: "Blockchain Lead",
     description: "In this position, I will be spearheading the development of innovative Web3 projects, starting from in-depth research to designing and deploying cutting-edge blockchain solutions. As the lead, I'm responsible for handling the full cycle of development, ensuring every aspect is carefully crafted to bring the best decentralized solutions to life.",
