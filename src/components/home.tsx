@@ -281,10 +281,10 @@ I enjoy tackling complex challenges and delivering reliable, production-ready so
                         <Image
                           src={skill.badge}
                           alt={skill.name}
-                          width={28}
+                          width={112}
                           height={28}
-                          className="h-[26px] lg:h-[28px] rounded shadow-sm hover:shadow-md transition-shadow duration-200"
-                          loading="lazy"
+                          className="h-[26px] lg:h-[28px] w-auto rounded shadow-sm hover:shadow-md transition-shadow duration-200"
+                          unoptimized
                         />
                       </div>
                     ))}
