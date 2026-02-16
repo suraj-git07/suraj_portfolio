@@ -11,7 +11,7 @@ const About = () => {
         data-aos-delay="100"
         className="my-1 px-2 mb-3"
       >
-        Hello! I'm Suraj Mishra, an Associate Engineer and Computer Science graduate
+        Hello! I&apos;m Suraj Mishra, an Associate Engineer and Computer Science graduate
         with a strong focus on Data Engineering, Cloud, and DevOps. I specialize in
         designing and building scalable data pipelines and analytics platforms using
         technologies such as Snowflake, Apache Airflow, dbt, Spark/PySpark, Python,

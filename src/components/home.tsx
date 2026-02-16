@@ -278,9 +278,11 @@ I enjoy tackling complex challenges and delivering reliable, production-ready so
                         data-aos-delay={catIndex * 80 + skillIndex * 30}
                         className="transform transition-all duration-300 hover:scale-110 hover:rotate-1"
                       >
-                        <img
+                        <Image
                           src={skill.badge}
                           alt={skill.name}
+                          width={28}
+                          height={28}
                           className="h-[26px] lg:h-[28px] rounded shadow-sm hover:shadow-md transition-shadow duration-200"
                           loading="lazy"
                         />
