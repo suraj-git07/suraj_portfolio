@@ -1,5 +1,23 @@
 const expData = [
-
+  {
+    img: "/nagarro.jpg",
+    companyName: "Nagarro",
+    role: "Associate Software Engineer",
+    description: "Currently working on developing innovative pipeline solutions using cutting-edge data engineering tools and technologies to optimize data workflows and enhance system efficiency.",
+    timePeriod: "",
+    positions: [
+      {
+        role: "Associate Software Engineer",
+        type: "Full-time",
+        description: "Developing robust pipeline solutions using advanced data engineering tools and frameworks. Leading initiatives to streamline data processing workflows, implement efficient ETL processes, and optimize data infrastructure for improved performance and scalability.",
+      },
+      {
+        role: "Trainee",
+        type: "Internship",
+        description: "Completed comprehensive training program focusing on Python programming and DevOps practices. Gained hands-on experience in building automation scripts, implementing CI/CD pipelines, containerization with Docker, and managing cloud infrastructure to support modern software development workflows.",
+      },
+    ],
+  },
   {
     img: "/giichi1.png",
     companyName: "Giichi IT Solution",
@@ -11,21 +29,26 @@ const expData = [
     img: "/gdsc.png",
     companyName: "Google Developer Student Club, USICT",
     role: "Web3 Lead",
-    description: "After being promoted to Web3 Lead at the Google Developer Student Club (GDSC), I took on a more strategic role, focusing on guiding students through the complexities of Web3 technologies. My responsibilities included providing mentorship on ongoing projects, offering hands-on solutions to challenges, and helping fellows successfully develop and implement their Web3 projects. My leadership in this role not only fostered a deeper understanding of blockchain and decentralized technologies among the students but also empowered them to bring their innovative ideas to life.",
+    description: "Drove the development and implementation of decentralized solutions at GDSC Club, leveraging expertise in blockchain technologies. Led Web3 initiatives, mentored students, and developed innovative NFT-based systems that enhanced security and accessibility.",
     timePeriod: "",
+    positions: [
+      {
+        role: "Web3 Lead",
+        type: "Full-time",
+        description: "After being promoted to Web3 Lead at the Google Developer Student Club (GDSC), I took on a more strategic role, focusing on guiding students through the complexities of Web3 technologies. My responsibilities included providing mentorship on ongoing projects, offering hands-on solutions to challenges, and helping fellows successfully develop and implement their Web3 projects. My leadership in this role not only fostered a deeper understanding of blockchain and decentralized technologies among the students but also empowered them to bring their innovative ideas to life.",
+      },
+      {
+        role: "Web3 Developer",
+        type: "Full-time",
+        description: "As a Web3 Developer and Mentor at the GDSC (USICT) at GGSIPU, I spearheaded the development of an NFT-based ID system for the GDSC USICT team, which enhanced security by 35% and improved record accessibility by 45%. Additionally, I created and implemented an innovative NFT certificate system for Google Developer events, enabling the direct delivery of certificates to winners' wallets. This solution ensured tamper-proof authenticity and simplified certificate access for over 100 participants, showcasing a practical application of blockchain technology in event management.",
+      },
+    ],
   },
   {
     img: "/SDC.jpeg",
     companyName: "Software Development Cell GGSIPU",
     role: "Developer Realtions",
     description: "I have been actively involved in Developer Relations since April 2023. I led instructional sessions for a cohort of over 50 students as part of the SDC Fellowship, providing mentorship in Web3 technologies. Additionally, I spearheaded marketing initiatives on campus, executing promotional campaigns that reached a diverse student body of over 5,000 students. These efforts significantly enhanced awareness and engagement with SDC projects, driving increased participation and interest in the program.",
-    timePeriod: "",
-  },
-  {
-    img: "/gdsc.png",
-    companyName: "Google Developer Student Club, USICT",
-    role: "Web3 Developer",
-    description: "As a Web3 Developer and Mentor at the GDSC (USICT) at GGSIPU, I spearheaded the development of an NFT-based ID system for the GDSC USICT team, which enhanced security by 35% and improved record accessibility by 45%. Additionally, I created and implemented an innovative NFT certificate system for Google Developer events, enabling the direct delivery of certificates to winners' wallets. This solution ensured tamper-proof authenticity and simplified certificate access for over 100 participants, showcasing a practical application of blockchain technology in event management.",
     timePeriod: "",
   },
   {

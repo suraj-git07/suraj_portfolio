@@ -29,6 +29,7 @@ const Home = () => {
   const [Start, setStart] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isModalOpen2, setModalOpen2] = useState(false);
+  const [showAllExperiences, setShowAllExperiences] = useState(false);
   const openModal = () => setModalOpen(true);
   const openModal2 = () => setModalOpen2(true);
   const closeModal = () => setModalOpen(false);
@@ -71,39 +72,62 @@ const Home = () => {
         <>
           {/* ============================== Introduction ============================ */}
           <div id="home" className="flex flex-col pt-[120px]">
-            <Image
-              data-aos="fade-down"
-              // src={`/photo-${theme === "light" ? "light" : "dark"}.jpg`}
-              src={`/suraj.jpeg`}
-              height={10000}
-              width={10000}
-              alt={"Profile Photo"}
-              className="border rounded-full w-[90px] mb-8 border-[#333] dark:border-white"
-            ></Image>
-            <div data-aos="fade-right" className="">
-              <h1 className="text-3xl font-[700] ">Suraj Mishra</h1>
-              <p className="mt-1">
-                <TypeAnimation
+            {/* Banner Background */}
+            <div 
+              data-aos="fade-down" 
+              className="hidden sm:block relative w-full h-[200px] rounded-sm overflow-hidden mb-[-85px]"
+            >
+              <Image
+                src="/banner.jpg"
+                alt="Banner"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            
+            {/* Profile Section - Image and Name */}
+            <div className="flex items-start gap-4 sm:flex-col sm:items-start">
+              {/* Profile Picture */}
+              <Image
+                data-aos="fade-down"
+                data-aos-delay="100"
+                src={`/suraj.png`}
+                height={10000}
+                width={10000}
+                alt={"Profile Photo"}
+                className="border-4 rounded-full w-[90px] h-[90px] sm:w-[150px] sm:h-[150px] sm:mb-8 border-white dark:border-[#1a1a1a] bg-white dark:bg-[#1a1a1a] relative z-5 sm:ml-6 flex-shrink-0"
+              ></Image>
+              
+              {/* Name and Title */}
+              <div data-aos="fade-right" className="flex-1 sm:w-full mt-4 sm:mt-0">
+                <h1 className="text-3xl font-[700]">Suraj Mishra</h1>
+                <p className="mt-1">
+                  <TypeAnimation
                   sequence={[
-                    "Software engineering student",
+                    "Full-Stack Engineer",
                     2000,
-                    "Blockchain developer",
+                    "Data Engineering",
                     2000,
-                    "MERN Stack developer",
+                    "DevOps & Cloud",
+                    2000,
+                    "Blockchain & Web3 Development",
                     2000,
                   ]}
-                  wrapper="span"
-                  speed={65}
-                  deletionSpeed={85}
-                  repeat={Infinity}
-                />
-              </p>
+                    wrapper="span"
+                    speed={65}
+                    deletionSpeed={85}
+                    repeat={Infinity}
+                  />
+                </p>
+              </div>
             </div>
+            
             <h1
               data-aos="fade-left"
               className=" pt-6 text-sm text-[#333] dark:text-[#d8d8d8] leading-[21px] "
             >
-              Full-Stack Blockchain Developer | Specializing in Optimized Smart Contracts and End-to-End Decentralized Solutions
+              Full-Stack Engineer | Data & Cloud Systems | Former Web3 Builder | B.Tech CSE ’25
             </h1>
             <div
               data-aos="fade-up"
@@ -186,9 +210,11 @@ const Home = () => {
               className="line-clamp- my-3 tracking-[0.3px] "
             >
 
-              Hello! I&apos;m Suraj Mishra, a Full-Stack Blockchain Developer and Computer Science Engineering student at GGSIP University, Dwarka.
-              With over 3 years of experience, I specialize in building decentralized applications (DApps) from scratch.
-              Proficient in Solidity & C/C++, I excel in problem-solving and thrive in challenging environments.
+            Hello! I&apos;m Suraj Mishra, an Associate Engineer focused on Software Development, DevOps, and Data Engineering. 
+I specialize in building scalable backend systems, data pipelines, and cloud-native applications using modern technologies across the stack. 
+I also bring over 4 years of hands-on experience in Blockchain and Web3, where I strengthened my problem-solving and system design skills. 
+I enjoy tackling complex challenges and delivering reliable, production-ready solutions.
+
             </p>
             <div
               data-aos="fade-left"
@@ -222,24 +248,46 @@ const Home = () => {
             >
               Skills
             </h1>
-            <div className="my-4">
-              {Skills.map((skill, index) => (
-                <Badge
+            
+            <div className="my-8 space-y-5">
+              {Skills.map((category, catIndex) => (
+                <div
+                  key={catIndex}
                   data-aos="fade-up"
                   data-aos-anchor-placement="top-bottom"
-                  variant="outline"
-                  key={index}
-                  className="my-1 mx-1 text-[14px]"
+                  data-aos-delay={catIndex * 80}
+                  className="bg-gradient-to-br from-white to-gray-50 dark:from-[#1a1a1b] dark:to-[#1e1e1f] rounded-2xl p-5 lg:p-7 shadow-sm hover:shadow-xl dark:shadow-gray-900/50 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-sky-400 dark:hover:border-sky-600"
                 >
-                  <Image
-                    src={`/Skills/${skill}.png`}
-                    alt={`${skill}`}
-                    height={18}
-                    width={18}
-                    className="mr-2"
-                  />
-                  {skill}
-                </Badge>
+                  {/* Category Header with decorative line */}
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="h-1 w-1 rounded-full bg-sky-500"></div>
+                    <h2 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white tracking-tight">
+                      {category.category}
+                    </h2>
+                    <div className="flex-1 h-[1px] bg-gradient-to-r from-gray-300 to-transparent dark:from-gray-700 dark:to-transparent"></div>
+                    
+                  </div>
+                  
+                  {/* Skills Badges Grid */}
+                  <div className="flex flex-wrap gap-3">
+                    {category.skills.map((skill, skillIndex) => (
+                      <div
+                        key={skillIndex}
+                        data-aos="zoom-in"
+                        data-aos-anchor-placement="top-bottom"
+                        data-aos-delay={catIndex * 80 + skillIndex * 30}
+                        className="transform transition-all duration-300 hover:scale-110 hover:rotate-1"
+                      >
+                        <img
+                          src={skill.badge}
+                          alt={skill.name}
+                          className="h-[26px] lg:h-[28px] rounded shadow-sm hover:shadow-md transition-shadow duration-200"
+                          loading="lazy"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -262,13 +310,13 @@ const Home = () => {
               {!Start ? (
                 "loading"
               ) : (
-                <div className="flex justify-around flex-wrap">
-                  {Project.slice(0, 3).map((project: any, index: any) => (
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+                  {Project.slice(0, 4).map((project: any, index: any) => (
                     <div
-                      className="flex"
                       data-aos="fade-up"
                       data-aos-anchor-placement="top-bottom"
                       key={index}
+                      className="flex"
                     >
                       <Card
                         Title={project.heading}
@@ -300,7 +348,7 @@ const Home = () => {
 
             {isModalOpen2 && (
               <Modal Heading="Projects" onClose={closeModal2}>
-                <div className="flex flex-wrap">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
                   {Project.map((project: any, index: any) => (
                     <Card
                       Title={project.heading}
@@ -330,7 +378,7 @@ const Home = () => {
               <div className="border-l-8 ">
                 {!Start
                   ? "loading ! "
-                  : expData.map((exp, index) => (
+                  : (showAllExperiences ? expData : expData.slice(0, 4)).map((exp, index) => (
                     <div key={index}>
                       <ExpCard
                         img={`/Experience${exp.img}`}
@@ -338,10 +386,24 @@ const Home = () => {
                         role={exp.role}
                         description={exp.description}
                         timePeriod={exp.timePeriod}
+                        positions={exp.positions}
                       ></ExpCard>
                     </div>
                   ))}
               </div>
+              {expData.length > 4 && (
+                <div className="flex justify-center mt-4">
+                  <Button
+                    data-aos="fade-up"
+                    data-aos-anchor-placement="top-bottom"
+                    onClick={() => setShowAllExperiences(!showAllExperiences)}
+                    variant="outline"
+                    className="px-6 py-2"
+                  >
+                    {showAllExperiences ? "Show Less" : "Read More"}
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
 
@@ -364,7 +426,7 @@ const Home = () => {
                 Feel free to connect
               </h1>
               <div className="flex">
-                <Link href={"https://instagram.com/_samrat_mishra"}>
+                <Link href={"https://www.linkedin.com/in/suraj-mishra07/"}>
                   <Button
                     data-aos="fade-up"
                     data-aos-anchor-placement="top-bottom"
@@ -372,7 +434,7 @@ const Home = () => {
                     size={"icon"}
                     className="mx-1"
                   >
-                    <InstagramIcon />
+                    <LinkedinIcon />
                   </Button>
                 </Link>
                 <Link href={"https://x.com/Suraj_Mishra7/"}>
@@ -410,25 +472,9 @@ const Home = () => {
           {/* ============================== Footer ============================ */}
 
           <div className="text-sm border-t-2 pt-4 mt-8 text-center dark:text-[#efefef] text-[#333]">
-            <h1 className="text-left sm:text-center ">
-              Powered by{" "}
-              <Link href={"https://nextjs.org"}>
-                <span className="text-sky-600 dark:text-sky-500">Next.js</span>
-              </Link>{" "}
-              and{" "}
-              <Link href={"https://tailwindcss.com"}>
-                <span className="text-sky-600 dark:text-sky-500">
-                  TailwindCSS
-                </span>
-              </Link>
-              . Hosted on{" "}
-              <Link href={"https://vercel.com"}>
-                <span className="text-sky-600 dark:text-sky-500">Vercel</span>
-              </Link>
-              .
-            </h1>
+            
             <h1 className="mb-6 py-1">
-              © 2024 <b className="font-[700] tracking-[1px]">Suraj Mishra</b>
+              © 2026 <b className="font-[700] tracking-[1px]">Suraj Mishra</b>
               . All rights reserved.
             </h1>
           </div>
