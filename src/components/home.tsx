@@ -92,11 +92,11 @@ const Home = () => {
               <Image
                 data-aos="fade-down"
                 data-aos-delay="100"
-                src={`/suraj.png`}
+                src={`/profilep.png`}
                 height={10000}
                 width={10000}
                 alt={"Profile Photo"}
-                className="border-4 rounded-full w-[90px] h-[90px] sm:w-[150px] sm:h-[150px] sm:mb-8 border-white dark:border-[#1a1a1a] bg-white dark:bg-[#1a1a1a] relative z-5 sm:ml-6 flex-shrink-0"
+                className="border-4 rounded-full w-[90px] h-[90px] sm:w-[150px] sm:h-[150px] sm:mb-8 border-white dark:border-[#1a1a1a] bg-white dark:bg-[#1a1a1a] relative z-5 sm:ml-6 flex-shrink-0 object-cover"
               ></Image>
               
               {/* Name and Title */}
