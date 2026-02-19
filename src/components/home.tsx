@@ -101,7 +101,7 @@ const Home = () => {
                 <Link 
                   href="https://leetcode.com/u/Suraj_Mishra/" 
                   target="_blank"
-                  className="absolute bottom-0 right-0 sm:bottom-6 sm:right-4 w-[24px] h-[24px] sm:w-[36px] sm:h-[36px] bg-[#FFA116] hover:bg-[#FF8C00] rounded-full flex items-center justify-center border-2 border-white dark:border-[#1a1a1a] transition-all duration-200 hover:scale-110 z-10"
+                  className="absolute bottom-0 right-0 sm:bottom-6 sm:right-4 w-[24px] h-[24px] sm:w-[36px] sm:h-[36px] bg-[#FFA116] hover:bg-[#FF8C00] rounded-full flex items-center justify-center border-2 border-white dark:border-[#1a1a1a] transition-all duration-200 hover:scale-110 z-8"
                   aria-label="LeetCode Profile"
                 >
                   <svg 
