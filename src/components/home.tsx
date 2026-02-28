@@ -185,7 +185,7 @@ const Home = () => {
               </Link>
               <Link
                 href={
-                  "https://drive.google.com/file/d/1TEo6taSN3sW57IJOSxBwqvBwnDNQZ_g2/view?usp=sharing"
+                  "https://drive.google.com/file/d/1RIFrdiLnBnmn_pthqBwIO8klOMbmk3Xh/view?usp=sharing"
                 }
                 target="_blank"
               >
