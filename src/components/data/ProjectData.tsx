@@ -1,5 +1,12 @@
 const projects = [
     {
+        heading:"Azure Streaming Data Engineering Pipeline",
+        summary:"Real-time and batch data pipeline on Azure integrating Event Hubs, ADLS Gen2, and Databricks for processing ride event streams alongside historical datasets. Medallion architecture used to create analytics-ready fact and dimension tables with SCD Type 1 and Type 2 handling.",
+        code:"https://github.com/suraj-git07/azure-streaming-batch-de-pipeline_project",
+        link:"",
+        img:"",
+    },
+    {
         heading:"PySpark + DBT Data Pipeline",
         summary:"Modern data pipeline built on Databricks combining PySpark for dynamic data processing and dbt for transformation and modeling. Implements Bronze-Silver-Gold architecture with PySpark Structured Streaming, Delta Lake ACID transactions, dbt incremental models, and SCD Type 2 snapshots. Features custom utility classes for deduplication, CDC-based merge logic, and Unity Catalog integration.",
         code:"https://github.com/suraj-git07/pyspark_dbt_proj",
