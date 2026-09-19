@@ -94,9 +94,8 @@ export default function Hero() {
 
           <Reveal dir="left" delay={240}>
             <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base">
-              I build the pipelines that enterprise reporting runs on — batch and
-              streaming ETL, metadata-driven data quality frameworks, and the
-              observability layer that catches a broken pipeline before anyone
+              I build the robust data pipelines that enterprise reporting runs on, designing batch and streaming ETL, 
+              metadata-driven data quality frameworks, and the observability layers that catch broken pipelines before anyone
               downstream notices. Currently an Associate Data Engineer at{" "}
               <span className="font-medium text-foreground">Nagarro</span>.
             </p>

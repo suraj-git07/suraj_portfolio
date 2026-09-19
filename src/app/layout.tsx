@@ -45,14 +45,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE_URL,
-    title: "Suraj Mishra — Data Engineer",
+    title: "Suraj Mishra : Data Engineer",
     description:
       "Batch & streaming data pipelines, data quality frameworks, and cloud-native data platforms.",
     siteName: "Suraj Mishra",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Suraj Mishra — Data Engineer",
+    title: "Suraj Mishra : Data Engineer",
     description:
       "Batch & streaming data pipelines, data quality frameworks, and cloud-native data platforms.",
     creator: "@Suraj_Mishra7",
