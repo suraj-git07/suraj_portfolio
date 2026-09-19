@@ -1,70 +1,149 @@
-const expData = [
+export interface Position {
+  role: string;
+  type: string;
+  timePeriod: string;
+  description: string;
+  highlights?: string[];
+}
+
+export interface Experience {
+  img: string;
+  companyName: string;
+  role: string;
+  location: string;
+  timePeriod: string;
+  description: string;
+  stack?: string[];
+  highlights?: string[];
+  positions?: Position[];
+}
+
+const expData: Experience[] = [
   {
-    img: "/nagarro.jpg",
+    img: "/Experience/nagarro.jpg",
     companyName: "Nagarro",
-    role: "Associate Software Engineer",
-    description: "Currently working on developing innovative pipeline solutions using cutting-edge data engineering tools and technologies to optimize data workflows and enhance system efficiency.",
-    timePeriod: "",
+    role: "Associate Data Engineer",
+    location: "Gurugram, India",
+    timePeriod: "Jan 2025 — Present",
+    description:
+      "Building metadata-driven ETL frameworks, enterprise data quality automation, and workflow observability for production data platforms.",
+    stack: [
+      "Python",
+      "PySpark",
+      "SQL",
+      "Snowflake",
+      "Airflow",
+      "AWS S3/EMR",
+      "Amazon Redshift",
+      "Argo Workflows",
+      "Kedro",
+      "Jenkins",
+    ],
     positions: [
       {
-        role: "Associate Software Engineer",
+        role: "Associate Data Engineer",
         type: "Full-time",
-        description: "Developing robust pipeline solutions using advanced data engineering tools and frameworks. Leading initiatives to streamline data processing workflows, implement efficient ETL processes, and optimize data infrastructure for improved performance and scalability.",
+        timePeriod: "Sep 2025 — Present",
+        description:
+          "Design and build scalable ETL frameworks, data quality solutions, and workflow automation that improve the reliability of enterprise data platforms.",
+        highlights: [
+          "Engineered the rule-configuration layer and validation engine of a metadata-driven Data Quality & Governance framework (Python, PySpark, AWS S3/EMR) governing 60 GB of enterprise data daily across 12 production pipelines.",
+          "Automated schema, completeness, and business-rule checks with consuming teams so reporting runs on trusted, SLA-compliant data — eliminating 95% of manual verification (20 hrs/week to under 1 hr/week).",
+          "Optimized PySpark ETL pipelines across 5 source systems into Amazon Redshift using partition pruning, broadcast joins, and skew mitigation, shrinking runtime from 3 hours to 45 minutes.",
+          "Lowered billed EMR compute hours by 75% at unchanged cluster configuration, enabling same-day reporting for 3 downstream analytics teams.",
+          "Integrated Airflow with ServiceNow ITSM to auto-raise incident tickets on pipeline failure, and designed a centralized alerting module reused across 20+ production DAGs within a 4-person platform team.",
+          "Reduced Mean-Time-To-Detection (MTTD) from 2 hours to 15 minutes (87%) and extended data-freshness and SLA tracking pipelines using Argo Workflows, Kedro, and Jenkins.",
+        ],
       },
       {
         role: "Trainee",
-        type: "Internship",
-        description: "Completed comprehensive training program focusing on Python programming and DevOps practices. Gained hands-on experience in building automation scripts, implementing CI/CD pipelines, containerization with Docker, and managing cloud infrastructure to support modern software development workflows.",
+        type: "Traineeship",
+        timePeriod: "Jan 2025 — Sep 2025",
+        description:
+          "Hands-on training in Python development and DevOps practices, focused on cloud infrastructure, containerization, and automation.",
+        highlights: [
+          "Built a production-ready Kubernetes cluster on AWS using Kops and Terraform, automating infrastructure provisioning for a 1 master + 1 worker node setup.",
+          "Developed “JustEat”, a full-stack food delivery web application in Flask with role-based authentication for customers and restaurant owners.",
+          "Tech stack: Python, Flask, Docker, Kubernetes, Terraform, AWS, Linux.",
+        ],
       },
     ],
   },
   {
-    img: "/giichi1.png",
-    companyName: "Giichi IT Solution",
-    role: "Blockchain Lead",
-    description: "In this position, I will be spearheading the development of innovative Web3 projects, starting from in-depth research to designing and deploying cutting-edge blockchain solutions. As the lead, I'm responsible for handling the full cycle of development, ensuring every aspect is carefully crafted to bring the best decentralized solutions to life.",
-    timePeriod: "",
+    img: "/Experience/giichi1.png",
+    companyName: "Giichi IT Solutions",
+    role: "Software Engineering Intern (Blockchain)",
+    location: "Remote",
+    timePeriod: "May 2024 — Nov 2024",
+    description:
+      "Built backend data structures and application logic for 3 core dApps, wiring services together with Apache Kafka producers and consumers for real-time data exchange, and streamlining execution logic to cut deployment time by 50%.",
+    stack: ["Apache Kafka", "Node.js", "TypeScript", "Solidity", "Next.js"],
+    highlights: [
+      "Developed backend data structures and application logic for 3 core dApps.",
+      "Connected services through Apache Kafka event producers and consumers for real-time data exchange.",
+      "Streamlined execution logic to cut deployment time by 50%.",
+    ],
   },
   {
-    img: "/gdsc.png",
-    companyName: "Google Developer Student Club, USICT",
+    img: "/Experience/gdsc.png",
+    companyName: "Google Developer Student Clubs, USICT",
     role: "Web3 Lead",
-    description: "Drove the development and implementation of decentralized solutions at GDSC Club, leveraging expertise in blockchain technologies. Led Web3 initiatives, mentored students, and developed innovative NFT-based systems that enhanced security and accessibility.",
-    timePeriod: "",
+    location: "Delhi, India",
+    timePeriod: "Aug 2022 — Aug 2024",
+    description:
+      "Led Web3 initiatives at GDSC USICT — mentoring students through decentralized application development and shipping NFT-based systems for the chapter.",
+    stack: ["Solidity", "Ethers.js", "Hardhat", "React"],
     positions: [
       {
         role: "Web3 Lead",
-        type: "Full-time",
-        description: "After being promoted to Web3 Lead at the Google Developer Student Club (GDSC), I took on a more strategic role, focusing on guiding students through the complexities of Web3 technologies. My responsibilities included providing mentorship on ongoing projects, offering hands-on solutions to challenges, and helping fellows successfully develop and implement their Web3 projects. My leadership in this role not only fostered a deeper understanding of blockchain and decentralized technologies among the students but also empowered them to bring their innovative ideas to life.",
+        type: "Leadership",
+        timePeriod: "Jan 2024 — Aug 2024",
+        description:
+          "Guided students through the complexities of Web3 technologies — mentoring ongoing projects, unblocking technical challenges, and helping fellows ship their Web3 builds end to end.",
       },
       {
         role: "Web3 Developer",
-        type: "Full-time",
-        description: "As a Web3 Developer and Mentor at the GDSC (USICT) at GGSIPU, I spearheaded the development of an NFT-based ID system for the GDSC USICT team, which enhanced security by 35% and improved record accessibility by 45%. Additionally, I created and implemented an innovative NFT certificate system for Google Developer events, enabling the direct delivery of certificates to winners' wallets. This solution ensured tamper-proof authenticity and simplified certificate access for over 100 participants, showcasing a practical application of blockchain technology in event management.",
+        type: "Core Team",
+        timePeriod: "Aug 2022 — Jan 2024",
+        description:
+          "Built an NFT-based ID system for the GDSC USICT team that improved record accessibility, and an NFT certificate system for Google Developer events that delivered tamper-proof certificates directly to the wallets of 100+ participants.",
       },
     ],
   },
   {
-    img: "/SDC.jpeg",
-    companyName: "Software Development Cell GGSIPU",
-    role: "Developer Realtions",
-    description: "I have been actively involved in Developer Relations since April 2023. I led instructional sessions for a cohort of over 50 students as part of the SDC Fellowship, providing mentorship in Web3 technologies. Additionally, I spearheaded marketing initiatives on campus, executing promotional campaigns that reached a diverse student body of over 5,000 students. These efforts significantly enhanced awareness and engagement with SDC projects, driving increased participation and interest in the program.",
-    timePeriod: "",
+    img: "/Experience/SDC.jpeg",
+    companyName: "Software Development Cell, GGSIPU",
+    role: "Developer Relations Lead",
+    location: "New Delhi, India",
+    timePeriod: "Mar 2023 — Jul 2024",
+    description:
+      "Mentored 100+ students and ran 10+ technical workshops on backend engineering, data structures, and data pipeline fundamentals, while driving campus outreach that reached a student body of 5,000+.",
+    stack: ["Mentoring", "Workshops", "Community"],
+    highlights: [
+      "Led instructional sessions for a cohort of 50+ students as part of the SDC Fellowship.",
+      "Ran 10+ technical workshops on backend engineering, data structures, and data pipeline fundamentals.",
+      "Executed campus promotional campaigns reaching 5,000+ students, driving participation in SDC programs.",
+    ],
   },
   {
-    img: "/admybrand.png",
-    companyName: "AdMyBrand",
-    role: "Blockchain Developer",
-    description: "In a remote role at ADmyBrand, I played a pivotal part in developing an NFT-based advertising platform on the Polygon blockchain, revolutionizing the way ad spaces are bought and sold by enabling users to purchase them as NFTs. This innovative approach significantly enhanced transparency in digital advertising. Additionally, I integrated blockchain-driven analytics that provided real-time campaign performance insights, resulting in a 40% increase in user engagement. My efforts also focused on ensuring data integrity, leading to a 30% reduction in fraud incidents and bolstering trust within the platform.",
-    timePeriod: "",
+    img: "/Experience/admybrand.png",
+    companyName: "ADmyBRAND",
+    role: "Blockchain Developer Intern",
+    location: "Bengaluru, India",
+    timePeriod: "Jun 2023 — Sep 2023",
+    description:
+      "Helped build an NFT-based advertising platform on Polygon where ad spaces are bought and sold as NFTs, adding blockchain-driven analytics for real-time campaign performance and on-chain data integrity guarantees.",
+    stack: ["Polygon", "Solidity", "Ethers.js", "React"],
   },
-
   {
-    img: "/InfoXpression.jpeg",
-    companyName: "InfoXpression USICT",
+    img: "/Experience/InfoXpression.jpeg",
+    companyName: "InfoXpression, USICT",
     role: "Web Developer",
-    description: "As part of the web development team for InfoXpression, the technical fest of GGSIPU, I played a crucial role in integrating backend functionalities and designing the frontend of the website. Working collaboratively, we ensured seamless functionality and an engaging user experience for the event's online platform.",
-    timePeriod: "",
+    location: "Delhi, India",
+    timePeriod: "Sep 2022 — Nov 2022",
+    description:
+      "Built scalable, reusable React components and integrated backend functionality for the official website of USICT's annual technical fest.",
+    stack: ["React", "JavaScript", "CSS"],
   },
 ];
 

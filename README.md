@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Suraj Mishra — Portfolio
 
-## Getting Started
+A 3D, scroll-driven portfolio for a data engineer. Built with Next.js App Router,
+React Three Fiber, and Tailwind.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How it's put together
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+src/
+  app/layout.tsx              Fonts, metadata, theme provider
+  components/
+    home.tsx                  Composes the sections
+    navbar.tsx                Scroll-spy nav + progress bar
+    data/                     All content lives here — edit these, not the sections
+      ExpData.tsx             Work history (companies, roles, highlights)
+      ProjectData.tsx         Projects, with tags and a domain used by the filters
+      SkillsData.tsx          Skill groups; icons come from react-icons/si
+      CertData.tsx            Certifications, education, and the hero stat tiles
+    sections/                 One file per page section
+    motion/                   Reveal (scroll-in), TiltCard (3D hover), SmoothScroll
+    three/                    WebGL background scene
+```
 
-## Learn More
+To change any content on the site, edit a file under `components/data/` — the
+sections render whatever is in there.
 
-To learn more about Next.js, take a look at the following resources:
+## The 3D layer
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`three/PipelineScene.tsx` renders a drifting particle field and a node
+constellation, both reacting to scroll position and cursor. All particle motion
+runs in the vertex shader, so scrolling never touches the position buffer.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`three/SceneBackground.tsx` decides how much of that to run:
 
-## Deploy on Vercel
+| Condition | Result |
+| --- | --- |
+| `prefers-reduced-motion`, or no WebGL | No canvas — CSS gradient + grid only |
+| Phone, touch pointer, or ≤ 4 CPU cores | `low` — fewer particles, capped DPR, no AA |
+| Everything else | `high` |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+three.js is dynamically imported and client-only, so it stays out of the initial
+bundle (~166 kB first load for the page).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Accessibility & motion
+
+Every animation is gated behind `prefers-reduced-motion`: reveals render at
+their final position, the marquee stops, and the WebGL canvas never mounts.
+Smooth scrolling is also skipped on touch devices, where native momentum
+scrolling feels better.
+
+## Deploy
+
+Deployed on Vercel. `npm run build` produces a fully static export of `/`.

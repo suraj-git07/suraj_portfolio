@@ -1,290 +1,197 @@
 "use client";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+
+import Link from "next/link";
+import React, { useCallback, useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import Change from "./themeChange";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Command } from "lucide-react";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-scroll";
-import Modal from "./UI Componemts/Modal";
-import Comand from "./Command";
+import { cn } from "@/lib/utils";
 
-const Navbar = () => {
-  const [Start, setStart] = React.useState(false);
+const SECTIONS = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "projects", label: "Projects" },
+  { id: "experience", label: "Experience" },
+  { id: "certifications", label: "Certs" },
+  { id: "connect", label: "Connect" },
+] as const;
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setStart(true);
-    }, 10);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const [isModalOpen, setModalOpen] = useState(false);
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
-  const [selected, setselected] = useState("home")
-
-
-  const [isOpen, setIsOpen] = useState(false);
+/** Thin progress bar pinned to the very top of the viewport. */
+function ScrollProgress() {
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (isModalOpen) {
-      document.body.classList.add('modal-open');
-    } else {
-      document.body.classList.remove('modal-open');
-    }
-
-    return () => {
-      document.body.classList.remove('modal-open');
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? (window.scrollY / max) * 100 : 0);
     };
-  }, [isModalOpen]);
-
-
-
-
-
-  const hoverEff = "mx-2 px-1 font-[600] hover:text-sky-600 dark:hover:text-sky-500";
-
-
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <>
-      {!Start ? (
-        ""
-      ) : (
-        <div className={`w-full fixed top-0 z-[10] `}>
-          <div className="flex w-[10vw]">
-          {isModalOpen && (
-            <Modal Heading="Command" onClose={closeModal}>
-            <Comand/>
-          </Modal>
-        )}
-        </div>
-          <div
-            data-aos="fade-down"
-            data-aos-delay="50"
-            className="flex backdrop-blur7 w-full m-auto lg:w-[750px] rounded-b-xl justify-between px-6 "
-          >
-            <div className={`menu md:flex items-center hidden mt-5`}>
-              
-              <Link
-                to="home"
-                smooth={true}
-                duration={500}
-                className="cursor-pointer"
-              >
-                <h1 onClick={() => {setselected("home")}} className={`${selected === "home" ? "text-sky-600 dark:text-sky-500" : ""} ${hoverEff}`}>
-                  Home
-                </h1>
-              </Link>
-              <Link
-                to="about"
-                smooth={true}
-                duration={500}
-                className="cursor-pointer"
-              >
-                <h1 onClick={() => {setselected("about")}} className={`${selected === "about" ? "text-sky-600 dark:text-sky-500" : ""} ${hoverEff}`}>
-                  About
-                </h1>
-              </Link>
-              <Link
-                to="skills"
-                smooth={true}
-                duration={500}
-                className="cursor-pointer"
-              >
-                <h1 onClick={() => {setselected("skills")}} className={`${selected === "skills" ? "text-sky-600 dark:text-sky-500" : ""} ${hoverEff}`}>
-                  Skills
-                </h1>
-              </Link>
-              <Link
-                to="projects"
-                smooth={true}
-                duration={500}
-                className="cursor-pointer"
-              >
-                <h1 onClick={() => {setselected("projects")}} className={`${selected === "projects" ? "text-sky-600 dark:text-sky-500" : ""} ${hoverEff}`}>
-                  Projects
-                </h1>
-              </Link>
-              <Link
-                to="experience"
-                smooth={true}
-                duration={500}
-                className="cursor-pointer"
-              >
-                <h1 onClick={() => {setselected("experience")}} className={`${selected === "experience" ? "text-sky-600 dark:text-sky-500" : ""} ${hoverEff}`}>
-                  Experience
-                </h1>
-              </Link>
-              <Link
-                to="connect"
-                smooth={true}
-                duration={500}
-                className="cursor-pointer"
-              >
-                <h1 onClick={() => {setselected("contact")}} className={`${selected === "contact" ? "text-sky-600 dark:text-sky-500" : ""} ${hoverEff}`}>
-                  Connect
-                </h1>
-              </Link>
-            </div>
-
-            {/* ================= mobile ======================= */}
-
-            <div className="flex align-center md:hidden ">
-              <Sheet open={isOpen}>
-                <SheetTrigger asChild>
-                  <Button
-                    data-aos="fade-down"
-                    data-aos-delay="50"
-                    variant="ghost"
-                    size="icon"
-                    className="mt-9"
-                  >
-                    <Image
-                      src={"/menu.png"}
-                      width={200}
-                      height={100}
-                      alt=""
-                      className={`flex self-center dark:invert-[0.8] w-6 h-6`}
-                      onClick={() => setIsOpen(true)}
-                    />
-                  </Button>
-                </SheetTrigger>
-
-                <SheetContent onClick={() => setIsOpen(false)} className="pt-12 sm:w-[40vw] ">
-                  <div
-                    
-                    className="flex flex-col my-3 items-center "
-                  >
-                    <Link
-                      to="home"
-                      smooth={true}
-                      duration={500}
-                      className="cursor-pointer flex w-full border-b border-[#efefef] rounded-sm"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <div className="flex w-full justify-center">
-                        <h1
-                          className="flex mt-8 mb-2 "
-                        >
-                          Home
-                        </h1>
-                      </div>
-                    </Link>
-                    <Link
-                      to="about"
-                      smooth={true}
-                      duration={500}
-                      className="cursor-pointer flex w-full border-b border-[#efefef] rounded-sm"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <div className="flex w-full justify-center">
-                        <h1
-                          className="flex mt-8 mb-2"
-                        >
-                          About
-                        </h1>
-                      </div>
-                    </Link>
-                    <Link
-                      to="skills"
-                      smooth={true}
-                      duration={500}
-                      className="cursor-pointer flex w-full border-b border-[#efefef] rounded-sm"
-                        onClick={() => setIsOpen(false)}
-                    >
-                      <div className="flex w-full justify-center">
-                        <h1
-                          className="flex mt-8 mb-2"
-                        >
-                          Skills
-                        </h1>
-                      </div>
-                    </Link>
-                    <Link
-                      to="projects"
-                      smooth={true}
-                      duration={500}
-                      className="cursor-pointer flex w-full border-b border-[#efefef] rounded-sm"
-                        onClick={() => setIsOpen(false)}
-                    >
-                      <div className="flex w-full justify-center">
-                        <h1
-                          className="flex mt-8 mb-2"
-                        >
-                          Projects
-                        </h1>
-                      </div>
-                    </Link>
-                    <Link
-                      to="experience"
-                      smooth={true}
-                      duration={500}
-                      className="cursor-pointer flex w-full border-b border-[#efefef] rounded-sm"
-                        onClick={() => setIsOpen(false)}
-                    >
-                      <div className="flex w-full justify-center">
-                        <h1
-                          className="flex mt-8 mb-2"
-                        >
-                          Experience
-                        </h1>
-                      </div>
-                    </Link>
-                    <Link
-                      to="connect"
-                      smooth={true}
-                      duration={500}
-                      className="cursor-pointer flex w-full border-b border-[#efefef] rounded-sm"
-                        onClick={() => setIsOpen(false)}
-                    >
-                      <div className="flex w-full justify-center">
-                        <h1
-                          className="flex mt-8 mb-2"
-                        >
-                          Connect
-                        </h1>
-                      </div>
-                    </Link>
-                  </div>
-                </SheetContent>
-              </Sheet>
-
-              {/* ======================= dark and command ====================== */}
-            </div>
-            <div className="flex my-auto mt-8 mb-6 ">
-              <div
-                data-aos="fade-down"
-                data-aos-delay="150"
-                className="flex justify-center flex-col w-10 h-10 overflow-hidden rounded-xl bg-[#d8d8d8] dark:bg-[#333] mx-2 cursor-pointer"
-              >
-
-                <div
-            onClick={openModal}
-          >
-              <Command className="w-full" />
-          </div>
-
-               
-              </div>
-              <div
-                data-aos="fade-down"
-                data-aos-delay="250"
-                className="flex justify-center flex-col w-10 h-10 overflow-hidden rounded-xl bg-[#d8d8d8] dark:bg-[#333] mx-2 cursor-pointer"
-              >
-                <Change />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+    <div
+      aria-hidden
+      className="absolute inset-x-0 top-0 h-[2px] origin-left bg-gradient-to-r from-primary via-primary to-violet-400 transition-transform duration-150 ease-out"
+      style={{ transform: `scaleX(${progress / 100})` }}
+    />
   );
-};
+}
 
-export default Navbar;
+export default function Navbar() {
+  const [active, setActive] = useState<string>("home");
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  /* Scroll-spy: mark the section currently closest to the top of the viewport. */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+    );
+
+    SECTIONS.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("modal-open", menuOpen);
+    return () => document.body.classList.remove("modal-open");
+  }, [menuOpen]);
+
+  const go = useCallback((id: string) => {
+    setMenuOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
+  return (
+    <header className="fixed inset-x-0 top-0 z-50">
+      <ScrollProgress />
+
+      <nav
+        className={cn(
+          "mx-auto mt-3 flex max-w-6xl items-center justify-between rounded-2xl px-4 py-2.5 transition-all duration-300 sm:px-5",
+          scrolled ? "glass-strong shadow-lg shadow-black/5" : "border-transparent bg-transparent",
+        )}
+        style={{ width: "calc(100% - 1.5rem)" }}
+      >
+        <button
+          onClick={() => go("home")}
+          className="flex items-center gap-2.5 text-sm font-bold tracking-tight"
+          aria-label="Back to top"
+        >
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-[13px] font-bold text-primary-foreground">
+            SM
+          </span>
+          <span className="hidden sm:inline">Suraj Mishra</span>
+        </button>
+
+        {/* Desktop nav */}
+        <div className="hidden items-center gap-1 md:flex">
+          {SECTIONS.map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => go(id)}
+              aria-current={active === id ? "true" : undefined}
+              className={cn(
+                "relative rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors",
+                active === id
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground",
+              )}
+            >
+              {label}
+              {active === id && (
+                <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-primary" />
+              )}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-2">
+          <div className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg border border-border bg-secondary/50 transition-colors hover:text-primary">
+            <Change />
+          </div>
+
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-secondary/50 md:hidden"
+          >
+            {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile sheet */}
+      <div
+        className={cn(
+          "fixed inset-0 top-0 z-[-1] md:hidden",
+          menuOpen ? "pointer-events-auto" : "pointer-events-none",
+        )}
+      >
+        <div
+          onClick={() => setMenuOpen(false)}
+          className={cn(
+            "absolute inset-0 bg-background/70 backdrop-blur-sm transition-opacity duration-300",
+            menuOpen ? "opacity-100" : "opacity-0",
+          )}
+        />
+        <div
+          className={cn(
+            "glass-strong absolute inset-x-3 top-[4.5rem] rounded-2xl p-2 transition-all duration-300",
+            menuOpen
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-4 opacity-0",
+          )}
+        >
+          {SECTIONS.map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => go(id)}
+              className={cn(
+                "flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors",
+                active === id
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-secondary/60 hover:text-foreground",
+              )}
+            >
+              {label}
+              <span className="font-mono text-[10px] opacity-50">
+                {String(SECTIONS.findIndex((s) => s.id === id) + 1).padStart(2, "0")}
+              </span>
+            </button>
+          ))}
+
+          <Link
+            href="https://drive.google.com/file/d/1IvwfbvsqHBYrdxu1HA1iAQIGY768dsRc/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setMenuOpen(false)}
+            className="mt-2 flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"
+          >
+            Download résumé
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+}
