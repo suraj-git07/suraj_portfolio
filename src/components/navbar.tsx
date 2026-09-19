@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Change from "./themeChange";
 import { cn } from "@/lib/utils";
+import { RESUME_URL } from "@/lib/site";
 
 const SECTIONS = [
   { id: "home", label: "Home" },
@@ -182,7 +183,7 @@ export default function Navbar() {
           ))}
 
           <Link
-            href="https://drive.google.com/file/d/1IvwfbvsqHBYrdxu1HA1iAQIGY768dsRc/view?usp=sharing"
+            href={RESUME_URL}
             target="_blank"
             rel="noreferrer"
             onClick={() => setMenuOpen(false)}

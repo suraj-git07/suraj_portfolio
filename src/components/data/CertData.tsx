@@ -81,16 +81,4 @@ export const education: EducationEntry[] = [
   },
 ];
 
-export interface Stat {
-  value: string;
-  label: string;
-}
-
-export const stats: Stat[] = [
-  { value: "60 GB", label: "enterprise data governed daily" },
-  { value: "75%", label: "EMR compute cost reduced" },
-  { value: "87%", label: "faster incident detection" },
-  { value: "20+", label: "production Airflow DAGs" },
-];
-
 export default certifications;

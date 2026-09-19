@@ -14,20 +14,23 @@ import {
   Mail,
 } from "lucide-react";
 import Reveal from "../motion/Reveal";
-import { stats } from "../data/CertData";
-
-const RESUME_URL =
-  "https://drive.google.com/file/d/1IvwfbvsqHBYrdxu1HA1iAQIGY768dsRc/view?usp=sharing";
+import {
+  EMAIL,
+  GITHUB_URL,
+  LEETCODE_URL,
+  LINKEDIN_URL,
+  RESUME_URL,
+} from "@/lib/site";
 
 const links = [
   {
-    href: "https://github.com/suraj-git07",
+    href: GITHUB_URL,
     label: "GitHub",
     handle: "suraj-git07",
     Icon: Github,
   },
   {
-    href: "https://www.linkedin.com/in/suraj-mishra07/",
+    href: LINKEDIN_URL,
     label: "LinkedIn",
     handle: "suraj-mishra07",
     Icon: Linkedin,
@@ -105,10 +108,10 @@ export default function Hero() {
                 <MapPin className="h-3.5 w-3.5" /> New Delhi, India
               </span>
               <Link
-                href="mailto:suraj844722@gmail.com"
+                href={`mailto:${EMAIL}`}
                 className="inline-flex items-center gap-1.5 transition-colors hover:text-primary"
               >
-                <Mail className="h-3.5 w-3.5" /> suraj844722@gmail.com
+                <Mail className="h-3.5 w-3.5" /> {EMAIL}
               </Link>
             </div>
           </Reveal>
@@ -178,7 +181,7 @@ export default function Hero() {
 
               {/* Floating LeetCode badge */}
               <Link
-                href="https://leetcode.com/u/Suraj_Mishra/"
+                href={LEETCODE_URL}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LeetCode profile"
@@ -196,25 +199,6 @@ export default function Hero() {
           </div>
         </Reveal>
       </div>
-
-      {/* ---------------- Impact stats ---------------- */}
-      <Reveal dir="up" delay={120} className="mt-16 lg:mt-20">
-        <dl className="panel grid grid-cols-2 gap-px overflow-hidden lg:grid-cols-4">
-          {stats.map((s) => (
-            <div
-              key={s.label}
-              className="group bg-transparent px-5 py-6 text-center transition-colors duration-300 hover:bg-secondary/40 sm:px-6"
-            >
-              <dt className="text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-                {s.value}
-              </dt>
-              <dd className="mt-1.5 text-xs leading-snug text-muted-foreground sm:text-[13px]">
-                {s.label}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </Reveal>
 
       <div className="mt-10 flex justify-center lg:mt-14">
         <ArrowDown className="animate-scroll-hint h-5 w-5 text-muted-foreground" />

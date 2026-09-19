@@ -5,30 +5,37 @@ import React from "react";
 import { ArrowUpRight, FileText, Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Reveal from "../motion/Reveal";
 import SectionHeading from "./SectionHeading";
+import {
+  EMAIL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  RESUME_URL,
+  TWITTER_URL,
+} from "@/lib/site";
 
 const channels = [
   {
     label: "Email",
-    value: "suraj844722@gmail.com",
-    href: "mailto:suraj844722@gmail.com?subject=Hello%20Suraj",
+    value: EMAIL,
+    href: `mailto:${EMAIL}?subject=Hello%20Suraj`,
     Icon: Mail,
   },
   {
     label: "LinkedIn",
     value: "suraj-mishra07",
-    href: "https://www.linkedin.com/in/suraj-mishra07/",
+    href: LINKEDIN_URL,
     Icon: Linkedin,
   },
   {
     label: "GitHub",
     value: "suraj-git07",
-    href: "https://github.com/suraj-git07",
+    href: GITHUB_URL,
     Icon: Github,
   },
   {
     label: "X",
     value: "Suraj_Mishra7",
-    href: "https://x.com/Suraj_Mishra7/",
+    href: TWITTER_URL,
     Icon: Twitter,
   },
 ];
@@ -72,7 +79,7 @@ export default function ContactSection() {
 
       <Reveal dir="up" delay={340} className="mt-10 flex justify-center">
         <Link
-          href="https://drive.google.com/file/d/1IvwfbvsqHBYrdxu1HA1iAQIGY768dsRc/view?usp=sharing"
+          href={RESUME_URL}
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/25"
